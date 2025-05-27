@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { CreateTodoListDto } from './dtos/create-todo_list';
 import { UpdateTodoListDto } from './dtos/update-todo_list';
 import { TodoList } from '../interfaces/todo_list.interface';
@@ -7,7 +7,7 @@ import { TodoList } from '../interfaces/todo_list.interface';
 export class TodoListsService {
   private readonly todolists: TodoList[];
 
-  constructor(todoLists: TodoList[] = []) {
+  constructor(@Inject('TODO_LISTS') todoLists: TodoList[]) {
     this.todolists = todoLists;
   }
 
@@ -23,6 +23,8 @@ export class TodoListsService {
     const todoList: TodoList = {
       id: this.nextId(),
       name: dto.name,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
 
     this.todolists.push(todoList);
