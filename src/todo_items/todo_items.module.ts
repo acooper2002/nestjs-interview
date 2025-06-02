@@ -7,5 +7,6 @@ import { SharedModule } from '../shared/shared.module';
   imports: [SharedModule],
   controllers: [TodoItemsController],
   providers: [TodoItemsService],
+  exports: [TodoItemsService],
 })
 export class TodoItemsModule {} 
