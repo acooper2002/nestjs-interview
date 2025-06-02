@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "todo": {
+      "command": "npm",
+      "args": [
+        "--silent",
+        "--prefix",
+        "/Users/andrewcooper/Desktop/Interview_crunchloop/nestjs-interview",
+        "run",
+        "mcp:start"
+      ]
+    }
+  }
+}
