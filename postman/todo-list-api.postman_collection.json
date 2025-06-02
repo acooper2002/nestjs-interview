@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "todo-list-api",
+		"name": "Todo List API",
+		"description": "A collection for testing the Todo List API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Todo Lists",
+			"item": [
+				{
+					"name": "Get All Todo Lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists"]
+						},
+						"description": "Retrieve all todo lists"
+					}
+				},
+				{
+					"name": "Get Todo List by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists/:todoListId",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists", ":todoListId"],
+							"variable": [
+								{
+									"key": "todoListId",
+									"value": "1",
+									"description": "ID of the todo list"
+								}
+							]
+						},
+						"description": "Retrieve a specific todo list by ID"
+					}
+				},
+				{
+					"name": "Create Todo List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My Todo List\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists"]
+						},
+						"description": "Create a new todo list"
+					}
+				},
+				{
+					"name": "Update Todo List",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Todo List\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists/:todoListId",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists", ":todoListId"],
+							"variable": [
+								{
+									"key": "todoListId",
+									"value": "1",
+									"description": "ID of the todo list to update"
+								}
+							]
+						},
+						"description": "Update an existing todo list"
+					}
+				},
+				{
+					"name": "Delete Todo List",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists/:todoListId",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists", ":todoListId"],
+							"variable": [
+								{
+									"key": "todoListId",
+									"value": "1",
+									"description": "ID of the todo list to delete"
+								}
+							]
+						},
+						"description": "Delete a todo list"
+					}
+				}
+			]
+		},
+		{
+			"name": "Todo Items",
+			"item": [
+				{
+					"name": "Get All Items in List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists/:todoListId/items",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists", ":todoListId", "items"],
+							"variable": [
+								{
+									"key": "todoListId",
+									"value": "1",
+									"description": "ID of the todo list"
+								}
+							]
+						},
+						"description": "Get all todo items in a specific list"
+					}
+				},
+				{
+					"name": "Create Todo Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"New todo item\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists/:todoListId/items",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists", ":todoListId", "items"],
+							"variable": [
+								{
+									"key": "todoListId",
+									"value": "1",
+									"description": "ID of the todo list"
+								}
+							]
+						},
+						"description": "Create a new todo item in a list"
+					}
+				},
+				{
+					"name": "Update Todo Item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Updated todo item\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists/:todoListId/items/:itemId",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists", ":todoListId", "items", ":itemId"],
+							"variable": [
+								{
+									"key": "todoListId",
+									"value": "1",
+									"description": "ID of the todo list"
+								},
+								{
+									"key": "itemId",
+									"value": "1",
+									"description": "ID of the todo item"
+								}
+							]
+						},
+						"description": "Update an existing todo item"
+					}
+				},
+				{
+					"name": "Complete Todo Item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists/:todoListId/items/:itemId/complete",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists", ":todoListId", "items", ":itemId", "complete"],
+							"variable": [
+								{
+									"key": "todoListId",
+									"value": "1",
+									"description": "ID of the todo list"
+								},
+								{
+									"key": "itemId",
+									"value": "1",
+									"description": "ID of the todo item"
+								}
+							]
+						},
+						"description": "Mark a todo item as complete"
+					}
+				},
+				{
+					"name": "Delete Todo Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/todolists/:todoListId/items/:itemId",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "todolists", ":todoListId", "items", ":itemId"],
+							"variable": [
+								{
+									"key": "todoListId",
+									"value": "1",
+									"description": "ID of the todo list"
+								},
+								{
+									"key": "itemId",
+									"value": "1",
+									"description": "ID of the todo item"
+								}
+							]
+						},
+						"description": "Delete a todo item from a list"
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string",
+			"description": "Base URL for the API"
+		}
+	]
+} 
